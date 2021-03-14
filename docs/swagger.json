@@ -1,0 +1,102 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/notes": {
+            "get": {
+                "description": "return all notes",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "GetAll",
+                "responses": {
+                    "200": {
+                        "description": "Notes",
+                        "schema": {
+                            "type": "Note"
+                        }
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "description": "add note",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Add",
+                "responses": {
+                    "201": {
+                        "description": "Note",
+                        "schema": {
+                            "type": "Note"
+                        }
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/notes/:id": {
+            "get": {
+                "description": "Get note by id",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get",
+                "responses": {
+                    "201": {
+                        "description": "Note",
+                        "schema": {
+                            "type": "Note"
+                        }
+                    },
+                    "404": {
+                        "description": ""
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            },
+            "put": {
+                "description": "Update note",
+                "consumes": [
+                    "application/json"
+                ],
+                "summary": "Update",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "description": "delete note",
+                "summary": "Delete",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "404": {
+                        "description": ""
+                    },
+                    "500": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}

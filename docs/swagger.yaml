@@ -1,0 +1,66 @@
+info:
+  contact: {}
+paths:
+  /notes:
+    get:
+      description: return all notes
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Notes
+          schema:
+            type: Note
+        "500":
+          description: ""
+      summary: GetAll
+    post:
+      consumes:
+      - application/json
+      description: add note
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Note
+          schema:
+            type: Note
+        "500":
+          description: ""
+      summary: Add
+  /notes/:id:
+    delete:
+      description: delete note
+      responses:
+        "200":
+          description: ""
+        "404":
+          description: ""
+        "500":
+          description: ""
+      summary: Delete
+    get:
+      description: Get note by id
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Note
+          schema:
+            type: Note
+        "404":
+          description: ""
+        "500":
+          description: ""
+      summary: Get
+    put:
+      consumes:
+      - application/json
+      description: Update note
+      responses:
+        "200":
+          description: ""
+        "500":
+          description: ""
+      summary: Update
+swagger: "2.0"

@@ -1,0 +1,34 @@
+version: "3.8"
+
+services: 
+  note.db:
+    image: mysql
+    container_name: note.db
+    restart: always
+    ports: 
+      - 3306:3306
+    volumes:
+      - "./db/scripts/db.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "wp-db:/var/lib/mysql:rw"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+    networks: 
+      - database
+  notes:
+    container_name: notes
+    build: .
+    command: 
+      "./main"
+    ports: 
+      - 8080:8080
+    networks: 
+      - database
+
+networks: 
+  database:
+    driver: "bridge"
+
+volumes: 
+  wp-db: {}
