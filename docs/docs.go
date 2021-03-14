@@ -33,7 +33,7 @@ var doc = `{
                 "summary": "GetAll",
                 "responses": {
                     "200": {
-                        "description": "Notes",
+                        "description": "OK",
                         "schema": {
                             "type": "Note"
                         }
@@ -54,9 +54,9 @@ var doc = `{
                 "summary": "Add",
                 "responses": {
                     "201": {
-                        "description": "Note",
+                        "description": "Created",
                         "schema": {
-                            "type": "Note"
+                            "$ref": "#/definitions/note.Note"
                         }
                     },
                     "500": {
@@ -73,10 +73,10 @@ var doc = `{
                 ],
                 "summary": "Get",
                 "responses": {
-                    "201": {
-                        "description": "Note",
+                    "200": {
+                        "description": "OK",
                         "schema": {
-                            "type": "Note"
+                            "$ref": "#/definitions/note.Note"
                         }
                     },
                     "404": {
@@ -115,6 +115,22 @@ var doc = `{
                     "500": {
                         "description": ""
                     }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "note.Note": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
                 }
             }
         }

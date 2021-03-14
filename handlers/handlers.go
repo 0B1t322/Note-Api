@@ -30,7 +30,7 @@ func New(db *gorm.DB) s.NoteService {
 // @Description add note
 // @Accept json
 // @Produce json
-// @Success 201 {Note} string "Note"
+// @Success 201 {object} note.Note
 // @Failure 500 
 // @Router /notes [post]
 func(ns *NoteHandler) Add(w http.ResponseWriter, r *http.Request) {
@@ -64,7 +64,7 @@ func(ns *NoteHandler) Add(w http.ResponseWriter, r *http.Request) {
 // @Summary GetAll
 // @Description return all notes
 // @Produce json
-// @Success 200 {Note} string "Notes"
+// @Success 200 {Note} {object} note.Note
 // @Failure 500
 // @Router /notes [get]
 func(ns *NoteHandler) GetAll(w http.ResponseWriter, r *http.Request) {
@@ -107,7 +107,7 @@ func(ns *NoteHandler) GetAll(w http.ResponseWriter, r *http.Request) {
 // @Summary Get
 // @Description Get note by id
 // @Produce json
-// @Success 201 {Note} string "Note"
+// @Success 200 {object} note.Note
 // @Failure 404
 // @Failure 500 
 // @Router /notes/:id [get]

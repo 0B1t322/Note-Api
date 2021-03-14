@@ -1,3 +1,13 @@
+definitions:
+  note.Note:
+    properties:
+      content:
+        type: string
+      id:
+        type: integer
+      title:
+        type: string
+    type: object
 info:
   contact: {}
 paths:
@@ -8,7 +18,7 @@ paths:
       - application/json
       responses:
         "200":
-          description: Notes
+          description: OK
           schema:
             type: Note
         "500":
@@ -22,9 +32,9 @@ paths:
       - application/json
       responses:
         "201":
-          description: Note
+          description: Created
           schema:
-            type: Note
+            $ref: '#/definitions/note.Note'
         "500":
           description: ""
       summary: Add
@@ -44,10 +54,10 @@ paths:
       produces:
       - application/json
       responses:
-        "201":
-          description: Note
+        "200":
+          description: OK
           schema:
-            type: Note
+            $ref: '#/definitions/note.Note'
         "404":
           description: ""
         "500":
